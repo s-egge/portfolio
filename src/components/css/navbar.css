@@ -1,26 +1,37 @@
 * {
     padding: 0;
     margin: 0;
-  }
-  
-  header {
+}
+
+header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0.25em;
-    padding-left: 0.5em;
+    width: 100%;
+    padding: 0.25em 1em;
     background-color: var(--navbar-color);
     font-size: 1.5em;
     color: white;
   }
 
-  a, i {
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 0.5em;
+}
+
+  .name, i, nav > a, i {
     text-decoration: none;
     color: white;
     padding: 0.25em;
     padding-left: 0.5em;
     padding-right: 0.5em;
     border-radius: 0.25em;
+  }
+
+  nav {
+    padding-right: 0.5em;
   }
 
   nav > a:hover, i:hover {
@@ -34,8 +45,9 @@
       flex-direction: column;
       align-items: center;
       position: absolute;
-      top: 50px;
+      top: 60px;
       right: 0px;
+      left: 0px;
       width: 100%;
       background-color: var(--navbar-color);
     }
