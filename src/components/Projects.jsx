@@ -1,10 +1,39 @@
 import {useState}  from 'react';
+import HoverVideoPlayer from 'react-hover-video-player';
 import './css/projects.css';
 
-function ProjectCard({title, description, img, projectLink, githubLink}) {
+
+function ImgVideoComponent({video, img, alt}) {
+  return (
+    <HoverVideoPlayer
+      videoSrc={video}
+      pausedOverlay={
+        <img
+          src={img}
+          alt={alt}
+          style={{
+            // Make the image expand to cover the video's dimensions
+            width: '100%',
+            height: '100%',
+            aspectRatio: '16:9',
+            objectFit: 'cover',
+          }}
+        />
+      }
+      loadingOverlay={
+        <div className="loading-overlay">
+          <div className="loading-spinner" />
+        </div>
+      }
+    />
+  );
+}
+
+
+function ProjectCard({title, description, img, video, alt, projectLink, githubLink}) {
   return (
     <article className="project-card">
-      <img src={img} alt={title + " photo"} />
+      <ImgVideoComponent video={video} img={img} alt={alt} />
       <h3>{title}</h3>
       <p>{description}</p>
       <a href={projectLink}>View Project</a>
@@ -19,7 +48,9 @@ function Projects() {
     {
       title: "Peasel", 
       description: "A browser tool for creating pixel art", 
-      img: "src/assets/peasel.png", 
+      img: "src/assets/peasel.png",
+      video: "src/assets/peasel.mp4",
+      alt: "peasel website photo/video",
       projectLink: "https://peasel.onrender.com/", 
       githubLink: "https://github.com/s-egge/peasel"
     },
@@ -27,6 +58,8 @@ function Projects() {
       title: "Animal Shelter Database", 
       description: "A webpage for managing data for a fictional animal shelter with an SQL database", 
       img: "src/assets/animal-database.png", 
+      video: "src/assets/animal-database.mp4",
+      alt: "animal shelter database website photo/video",
       projectLink: "146.235.204.101:27469", 
       githubLink: "https://github.com/s-egge/animal-shelter-database"
     },
@@ -34,6 +67,8 @@ function Projects() {
       title: "Picnic Defender", 
       description: "A group project for an intro Web Developement class, this is a game where the player must defend their picnic against enroaching bugs", 
       img: "src/assets/picnic-defender.png", 
+      video: "src/assets/picnic-defender.mp4",
+      alt: "picnic defender website photo/video",
       projectLink: "https://www.google.com", 
       githubLink: "https://www.google.com"},
     {
