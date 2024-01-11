@@ -34,10 +34,14 @@ function ProjectCard({title, description, img, video, alt, projectLink, githubLi
   return (
     <article className="project-card">
       <ImgVideoComponent video={video} img={img} alt={alt} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <a href={projectLink}>View Project</a>
-      <a href={githubLink}>View Code</a>
+      <div className="project-info">
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <div className="project-links">
+          {projectLink !== '' && <a href={projectLink}>View Project</a>}
+          <a href={githubLink}>View Code</a>
+        </div>
+      </div>
     </article>
   );
 }
@@ -60,7 +64,7 @@ function Projects() {
       img: "src/assets/animal-database.png", 
       video: "src/assets/animal-database.mp4",
       alt: "animal shelter database website photo/video",
-      projectLink: "146.235.204.101:27469", 
+      projectLink: "", 
       githubLink: "https://github.com/s-egge/animal-shelter-database"
     },
     {
