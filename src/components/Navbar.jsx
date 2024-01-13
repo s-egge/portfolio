@@ -2,9 +2,23 @@ import { useState } from 'react';
 import './css/navbar.css';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
-function NavLink({href, text, className}) {
+
+function NavLink({ href, text, className, toggleMenu }) {
+  const handleClick = (event) => {
+    event.preventDefault();
+
+    const targetElement = document.querySelector(href);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+
+    toggleMenu();
+  };
+
   return (
-    <a href={href} className={className}>
+    <a href={href} className={className} onClick={handleClick}>
       {text}
     </a>
   );
@@ -34,7 +48,7 @@ function Navbar() {
 
       <nav className={`navbar ${menuOpen ? 'active' : ''}`}>
         {navLinks.map((link, index) => (
-            <NavLink key={index} {...link} />
+            <NavLink key={index} {...link} toggleMenu={toggleMenu} />
           ))}
       </nav>
     </header>

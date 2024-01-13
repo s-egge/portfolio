@@ -59,8 +59,8 @@ function Projects() {
     {
       title: "Peasel", 
       description: "A browser tool for creating pixel art", 
-      img: "src/assets/peasel.png",
-      video: "src/assets/peasel.mp4",
+      img: "src/assets/projects/peasel.png",
+      video: "src/assets/projects/peasel.mp4",
       alt: "peasel website photo/video",
       tech: ["html", "css", "javascript", "express"],
       projectLink: "https://peasel.onrender.com/", 
@@ -69,8 +69,8 @@ function Projects() {
     {
       title: "Animal Shelter Database", 
       description: "A webpage for managing data for a fictional animal shelter with an SQL database", 
-      img: "src/assets/animal-database.png", 
-      video: "src/assets/animal-database.mp4",
+      img: "src/assets/projects/animal-database.png", 
+      video: "src/assets/projects/animal-database.mp4",
       alt: "animal shelter database website photo/video",
       tech: ["html", "css", "javascript", "express", "sql", "mysql", "sqlite"],
       projectLink: "", 
@@ -79,8 +79,8 @@ function Projects() {
     {
       title: "Picnic Defender", 
       description: "A group project for an intro Web Developement class, this is a game where the player must defend their picnic against enroaching bugs", 
-      img: "src/assets/picnic-defender.png", 
-      video: "src/assets/picnic-defender.mp4",
+      img: "src/assets/projects/picnic-defender.png", 
+      video: "src/assets/projects/picnic-defender.mp4",
       alt: "picnic defender website photo/video",
       tech: ["html", "css", "javascript", "express"],
       projectLink: "https://www.google.com", 
@@ -88,8 +88,8 @@ function Projects() {
     {
       title: "Portfolio", 
       description: "This web page! A desktop and mobile friendly page where I showcase my projects", 
-      img: "src/assets/portfolio.png", 
-      video: "src/assets/portfolio.mp4",
+      img: "src/assets/projects/portfolio.png", 
+      video: "src/assets/projects/portfolio.mp4",
       alt: "portfolio website photo/video",
       tech: ["html", "css", "javascript", "react"],
       projectLink: "localhost:5173/",
@@ -115,7 +115,7 @@ function Projects() {
   }, []);
 
     return (
-      <div className="projects-container">
+      <div id="projects" className="projects-container">
         <h3>Projects</h3>
         <div className="projects-wrapper">
           {projects.map((project, index) => (

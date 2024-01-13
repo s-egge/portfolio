@@ -1,0 +1,27 @@
+.skills-container {
+    width: 75%;
+    padding: 3em 1em;
+}
+
+.skills-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill-card {
+    background-color: var(--navbar-color);
+    width: fit-content;
+    padding: 1em 3em;
+    margin: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 0.9rem;
+}
+
+.skill-card h2 {
+    margin-bottom: 1em;
+}
+
+li > ul{
+    margin: 0.5em 1em;
+}

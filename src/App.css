@@ -20,3 +20,27 @@ main {
   align-items: center;
   overflow-x: hidden;
 }
+
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--navbar-color);
+  padding: 2em;
+  font-size: 0.8rem;
+
+}
+
+svg {
+  fill: white;
+  height: 50px;
+  width: 50px;
+}
+
+svg:hover {
+  fill: var(--navbar-highlight);
+  cursor: pointer;
+  transform: scale(1.1);
+}
