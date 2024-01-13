@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import githubLogo from '../assets/github-mark-white.png';
+import linkedInLogo from '../assets/LI-In-Bug.png';
 import './css/about.css';
 
 function About() {
@@ -31,10 +32,10 @@ function About() {
                     <img className="portrait" src="https://media.licdn.com/dms/image/D5603AQEK0sDWUXkywQ/profile-displayphoto-shrink_200_200/0/1668541275489?e=1709769600&v=beta&t=dCXvBm2forOGSa753d-LbkUmbZlhK1CHp0CaDgtOhus" alt="Samantha Egge" />
                     <div className="links">
                         <a href="https://github.com/s-egge">
-                            <img src="src\assets\github-mark-white.png" alt="Github logo"/>
+                            <img src={githubLogo} alt="Github logo"/>
                         </a>
                         <a href="https://www.linkedin.com/in/samantha-s-egge/">
-                            <img src="src\assets\LI-In-Bug.png" alt="LinkedIn logo"/>
+                            <img src={linkedInLogo} alt="LinkedIn logo"/>
                         </a>
 
                     </div>

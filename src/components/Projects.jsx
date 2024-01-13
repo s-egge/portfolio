@@ -1,4 +1,12 @@
 import {useState, useEffect}  from 'react';
+import peaselImg from '../assets/projects/peasel.png';
+import peaselVideo from '../assets/projects/peasel.mp4';
+import animalDatabaseImg from '../assets/projects/animal-database.png';
+import animalDatabaseVideo from '../assets/projects/animal-database.mp4';
+import picnicDefenderImg from '../assets/projects/picnic-defender.png';
+import picnicDefenderVideo from '../assets/projects/picnic-defender.mp4';
+import portfolioImg from '../assets/projects/portfolio.png';
+import portfolioVideo from '../assets/projects/portfolio.mp4';
 import HoverVideoPlayer from 'react-hover-video-player'; 
 import './css/projects.css';
 
@@ -59,8 +67,8 @@ function Projects() {
     {
       title: "Peasel", 
       description: "A browser tool for creating pixel art", 
-      img: "src/assets/projects/peasel.png",
-      video: "src/assets/projects/peasel.mp4",
+      img: peaselImg,
+      video: peaselVideo,
       alt: "peasel website photo/video",
       tech: ["html", "css", "javascript", "express"],
       projectLink: "https://peasel.onrender.com/", 
@@ -69,8 +77,8 @@ function Projects() {
     {
       title: "Animal Shelter Database", 
       description: "A webpage for managing data for a fictional animal shelter with an SQL database", 
-      img: "src/assets/projects/animal-database.png", 
-      video: "src/assets/projects/animal-database.mp4",
+      img: animalDatabaseImg, 
+      video: animalDatabaseVideo,
       alt: "animal shelter database website photo/video",
       tech: ["html", "css", "javascript", "express", "sql", "mysql", "sqlite"],
       projectLink: "", 
@@ -79,8 +87,8 @@ function Projects() {
     {
       title: "Picnic Defender", 
       description: "A group project for an intro Web Developement class, this is a game where the player must defend their picnic against enroaching bugs", 
-      img: "src/assets/projects/picnic-defender.png", 
-      video: "src/assets/projects/picnic-defender.mp4",
+      img: picnicDefenderImg, 
+      video: picnicDefenderVideo,
       alt: "picnic defender website photo/video",
       tech: ["html", "css", "javascript", "express"],
       projectLink: "https://www.google.com", 
@@ -88,11 +96,11 @@ function Projects() {
     {
       title: "Portfolio", 
       description: "This web page! A desktop and mobile friendly page where I showcase my projects", 
-      img: "src/assets/projects/portfolio.png", 
-      video: "src/assets/projects/portfolio.mp4",
+      img: portfolioImg, 
+      video: portfolioVideo,
       alt: "portfolio website photo/video",
       tech: ["html", "css", "javascript", "react"],
-      projectLink: "localhost:5173/",
+      projectLink: "https://samanthaegge.com/",
       githubLink: "https://github.com/s-egge/portfolio"
     },
   ]
