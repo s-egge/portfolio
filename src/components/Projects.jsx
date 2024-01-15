@@ -7,6 +7,8 @@ import picnicDefenderImg from '../assets/projects/picnic-defender.png';
 import picnicDefenderVideo from '../assets/projects/picnic-defender.mp4';
 import portfolioImg from '../assets/projects/portfolio.png';
 import portfolioVideo from '../assets/projects/portfolio.mp4';
+import campfireImg from '../assets/projects/campfire-scene.png';
+import campfireVideo from '../assets/projects/campfire-scene.mp4';
 import HoverVideoPlayer from 'react-hover-video-player'; 
 import './css/projects.css';
 
@@ -85,14 +87,15 @@ function Projects() {
       githubLink: "https://github.com/s-egge/animal-shelter-database"
     },
     {
-      title: "Picnic Defender", 
-      description: "A group project for an intro Web Developement class, this is a game where the player must defend their picnic against enroaching bugs", 
-      img: picnicDefenderImg, 
-      video: picnicDefenderVideo,
-      alt: "picnic defender website photo/video",
-      tech: ["html", "css", "javascript", "express"],
-      projectLink: "https://www.google.com", 
-      githubLink: "https://www.google.com"},
+      title: "Campfire Scene",
+      description: "A 3D scene of a campfire made with GLSL/OpenGL",
+      img: campfireImg,
+      video: campfireVideo,
+      alt: "campfire scene photo/video",
+      tech: ["c++", "glsl", "opengl"],
+      projectLink: "",
+      githubLink: "https://github.com/s-egge/campfire-scene"
+    },
     {
       title: "Portfolio", 
       description: "This web page! A desktop and mobile friendly page where I showcase my projects", 
@@ -102,6 +105,16 @@ function Projects() {
       tech: ["html", "css", "javascript", "react"],
       projectLink: "https://samanthaegge.com/",
       githubLink: "https://github.com/s-egge/portfolio"
+    },
+    {
+      title: "Picnic Defender", 
+      description: "A group project for an intro Web Developement class, this is a game where the player must defend their picnic against enroaching bugs", 
+      img: picnicDefenderImg, 
+      video: picnicDefenderVideo,
+      alt: "picnic defender website photo/video",
+      tech: ["html", "css", "javascript", "express"],
+      projectLink: "https://www.google.com", 
+      githubLink: "https://www.google.com"
     },
   ]
 
