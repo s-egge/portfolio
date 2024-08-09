@@ -1,5 +1,6 @@
 import githubLogo from '../assets/github-mark-white.png';
 import linkedInLogo from '../assets/LI-In-Bug.png';
+import profilePic from '../assets/profile-picture.jpg';
 import './css/about.css';
 
 function About() {
@@ -29,7 +30,7 @@ function About() {
                 </div>
                 
                 <div className="img-links-wrapper">
-                    <img className="portrait" src="https://media.licdn.com/dms/image/D5603AQEK0sDWUXkywQ/profile-displayphoto-shrink_200_200/0/1668541275489?e=1709769600&v=beta&t=dCXvBm2forOGSa753d-LbkUmbZlhK1CHp0CaDgtOhus" alt="Samantha Egge" />
+                    <img className="portrait" src={profilePic} alt="Profile Picture" />
                     <div className="links">
                         <a href="https://github.com/s-egge">
                             <img src={githubLogo} alt="Github logo"/>
