@@ -1,5 +1,14 @@
 export const projectData = [
   {
+    title: "Youtube Tidy",
+    description: "A group project for Advanced Web Development, this project allows users to manage their YouTube playlists and subscriptions by bulk moving, adding, or deleting videos. You can sign in with a valid ONID account or checkout the website as a guest user",
+    mediaName: "youtube-tidy",
+    alt: "youtube tidy website photo/video",
+    tech: ["html", "css", "typescript", "react", "redux", "google oauth", "youtube api"],
+    projectLink: "https://youtube-tidy.netlify.app/",
+    githubLink: "https://github.com/s-egge/youtube-tidy"
+  },
+  {
     title: "Peasel", 
     description: "A browser tool for creating pixel art", 
     mediaName: "peasel",
