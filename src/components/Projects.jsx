@@ -1,25 +1,29 @@
 import {useState, useEffect}  from 'react';
-import peaselImg from '../assets/projects/peasel.png';
-import peaselVideo from '../assets/projects/peasel.mp4';
-import animalDatabaseImg from '../assets/projects/animal-database.png';
-import animalDatabaseVideo from '../assets/projects/animal-database.mp4';
-import picnicDefenderImg from '../assets/projects/picnic-defender.png';
-import picnicDefenderVideo from '../assets/projects/picnic-defender.mp4';
-import portfolioImg from '../assets/projects/portfolio.png';
-import portfolioVideo from '../assets/projects/portfolio.mp4';
-import campfireImg from '../assets/projects/campfire-scene.png';
-import campfireVideo from '../assets/projects/campfire-scene.mp4';
+import { projectData } from '../assets/projectData';
 import HoverVideoPlayer from 'react-hover-video-player'; 
 import './css/projects.css';
 
 
 function ImgVideoComponent({video, img, alt}) {
+  const [videoSrc, setVideoSrc] = useState(null);
+  const [imgSrc, setImgSrc] = useState(null);
+
+  // load the image and video sources when the component mounts
+  useEffect(() => {
+    img.then((img) => setImgSrc(img));
+    video.then((video) => setVideoSrc(video));
+  }, [img, video]);
+
+  if (!imgSrc || !videoSrc) {
+    return <div>Loading...</div>
+  }
+
   return (
     <HoverVideoPlayer
-      videoSrc={video}
+      videoSrc={videoSrc}
       pausedOverlay={
         <img
-          src={img}
+          src={imgSrc}
           alt={alt}
           style={{
             // Make the image expand to cover the video's dimensions
@@ -64,60 +68,6 @@ function ProjectCard({title, description, img, video, alt, tech, projectLink, gi
 }
 
 function Projects() {
-  //variable that holds set of projects, each has title, description, and link
-  const projects = [
-    {
-      title: "Peasel", 
-      description: "A browser tool for creating pixel art", 
-      img: peaselImg,
-      video: peaselVideo,
-      alt: "peasel website photo/video",
-      tech: ["html", "css", "javascript", "express"],
-      projectLink: "https://peasel.onrender.com/", 
-      githubLink: "https://github.com/s-egge/peasel"
-    },
-    {
-      title: "Animal Shelter Database", 
-      description: "A webpage for managing data for a fictional animal shelter with an SQL database", 
-      img: animalDatabaseImg, 
-      video: animalDatabaseVideo,
-      alt: "animal shelter database website photo/video",
-      tech: ["html", "css", "javascript", "express", "sql", "mysql", "sqlite"],
-      projectLink: "", 
-      githubLink: "https://github.com/s-egge/animal-shelter-database"
-    },
-    {
-      title: "Campfire Scene",
-      description: "A 3D scene of a campfire made with GLSL/OpenGL",
-      img: campfireImg,
-      video: campfireVideo,
-      alt: "campfire scene photo/video",
-      tech: ["c++", "glsl", "opengl"],
-      projectLink: "",
-      githubLink: "https://github.com/s-egge/campfire-scene"
-    },
-    {
-      title: "Portfolio", 
-      description: "This web page! A desktop and mobile friendly page where I showcase my projects", 
-      img: portfolioImg, 
-      video: portfolioVideo,
-      alt: "portfolio website photo/video",
-      tech: ["html", "css", "javascript", "react"],
-      projectLink: "https://samanthaegge.com/",
-      githubLink: "https://github.com/s-egge/portfolio"
-    },
-    {
-      title: "Picnic Defender", 
-      description: "A group project for an intro Web Developement class, this is a game where the player must defend their picnic against enroaching bugs", 
-      img: picnicDefenderImg, 
-      video: picnicDefenderVideo,
-      alt: "picnic defender website photo/video",
-      tech: ["html", "css", "javascript", "express"],
-      projectLink: "https://www.google.com", 
-      githubLink: "https://www.google.com"
-    },
-  ]
-
   const [maxHeight, setMaxHeight] = useState(0);
 
   useEffect(() => {
@@ -139,9 +89,23 @@ function Projects() {
       <div id="projects" className="projects-container">
         <h3>Projects</h3>
         <div className="projects-wrapper">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} style={{ height: `${maxHeight}px` }} />
-          ))}
+          {projectData.map((project, index) => {
+
+            // import the image and video files
+            const img = import(`../assets/projects/${project.mediaName}.png`);
+            const video = import(`../assets/projects/${project.mediaName}.mp4`);
+
+            return (
+              <ProjectCard 
+                key={index} 
+                {...project} 
+                // pass the promise of the image and video to the component
+                img={img.then((img) => img.default)} 
+                video={video.then((video) => video.default)} 
+                style={{ height: `${maxHeight}px` }} 
+              />
+            )
+          })}
         </div>
       </div>
     );
