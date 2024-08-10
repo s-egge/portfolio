@@ -29,15 +29,41 @@ function SkillCard({type, list}) {
 
 function Skills() {
   const skills = [
-    { type: "Front End", list: ["HTML", "CSS", "JavaScript", "React", "Vue/Vuex"] },
-    { type: "Back End", list: ["Node.js", "Express", "Flask", "SQL", "MySQL", "SQLite"] },
-    { type: "Languages", list: ["C", "C++", "Python", "Java", "GLSL/OpenGL"] },
-    { type: "Cloud Services", list: [
-        { service: "Google Cloud Platform", subList: ["Datastore", "App Engine", "Compute Engine"] },
-        { service: "Amazon Web Services", subList: ["EC2", "CloudWatch", "RDS"] },
-      ]
+    { type: "Front End", list: ["HTML", "CSS", "React", "Vue/Vuex"] },
+    {
+      type: "Back End",
+      list: ["Node.js", "Express", "Flask", "SQL", "MySQL", "SQLite"],
     },
-    { type: "Other", list: ["Git", "GitHub", "Postman", "Docker"] },
+    {
+      type: "Languages",
+      list: [
+        "C",
+        "C++",
+        "Python",
+        "Javascript",
+        "Typescript",
+        "Java",
+        "Kotlin",
+        "GLSL/OpenGL",
+      ],
+    },
+    {
+      type: "Cloud Services",
+      list: [
+        {
+          service: "Google Cloud Platform",
+          subList: ["Datastore", "App Engine", "Compute Engine"],
+        },
+        {
+          service: "Amazon Web Services",
+          subList: ["EC2", "ECS", "CloudWatch", "RDS", "S3", "IAM"],
+        },
+      ],
+    },
+    {
+      type: "Other",
+      list: ["Git", "GitHub", "Postman", "Docker", "Terraform", "Ansible"],
+    },
   ];
 
     return (
