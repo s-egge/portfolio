@@ -1,10 +1,9 @@
-import {useState, useEffect}  from 'react';
-import { projectData } from '../assets/projectData';
-import HoverVideoPlayer from 'react-hover-video-player'; 
-import './css/projects.css';
+import { useState, useEffect } from "react";
+import { projectData } from "../assets/projectData";
+import HoverVideoPlayer from "react-hover-video-player";
+import "./css/projects.css";
 
-
-function ImgVideoComponent({video, img, alt}) {
+function ImgVideoComponent({ video, img, alt }) {
   const [videoSrc, setVideoSrc] = useState(null);
   const [imgSrc, setImgSrc] = useState(null);
 
@@ -15,7 +14,7 @@ function ImgVideoComponent({video, img, alt}) {
   }, [img, video]);
 
   if (!imgSrc || !videoSrc) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   return (
@@ -27,10 +26,10 @@ function ImgVideoComponent({video, img, alt}) {
           alt={alt}
           style={{
             // Make the image expand to cover the video's dimensions
-            width: '100%',
-            height: '100%',
-            aspectRatio: '16:9',
-            objectFit: 'cover',
+            width: "100%",
+            height: "100%",
+            aspectRatio: "16:9",
+            objectFit: "cover",
           }}
         />
       }
@@ -43,72 +42,66 @@ function ImgVideoComponent({video, img, alt}) {
   );
 }
 
-
-function ProjectCard({title, description, img, video, alt, tech, projectLink, githubLink}) {
+function Projects() {
   return (
-    <article className="project-card">
-      <ImgVideoComponent video={video} img={img} alt={alt} />
-      <div className="project-info">
-        <div className="title-description-wrapper">
-          <h2>{title}</h2>
-          <p>{description}</p>
-        </div>
-        <div className="tech-wrapper">
-          {tech.map((tech, index) => (
-            <p key={index}>{tech}</p>
-          ))}
-        </div>
-        <div className="project-links">
-          {projectLink !== '' && <a href={projectLink}>View Project</a>}
-          <a href={githubLink}>View Code</a>
-        </div>
-      </div>
-    </article>
+    <div id="projects" className="projects-container">
+      <h3>Projects</h3>
+      {projectData.map((project, index) => {
+        const img = import(`../assets/projects/${project.mediaName}.png`);
+        const video = import(`../assets/projects/${project.mediaName}.mp4`);
+        const isLast = index === projectData.length - 1;
+        const isEven = index % 2 === 0;
+
+        return (
+          <section
+            key={index}
+            className={`project-section ${isEven ? "even" : "odd"}`}
+          >
+            <div className={`project-row ${isLast ? "no-bottom-border" : ""}`}>
+              <div className="project-media">
+                <ImgVideoComponent
+                  video={video.then((v) => v.default)}
+                  img={img.then((i) => i.default)}
+                  alt={project.alt}
+                />
+              </div>
+              <div className="project-details">
+                <h2>{project.title}</h2>
+                <p>{project.description}</p>
+                <div className="project-tools">
+                  {project.tech.map((tech, i) => (
+                    <span key={i} className="tool-tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="project-links">
+                  {project.projectLink && (
+                    <a
+                      href={project.projectLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="View Live Project"
+                    >
+                      <i className="fa fa-external-link" aria-hidden="true"></i>
+                    </a>
+                  )}
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="View Code on GitHub"
+                  >
+                    <i className="fa fa-github" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })}
+    </div>
   );
 }
-
-function Projects() {
-  const [maxHeight, setMaxHeight] = useState(0);
-
-  useEffect(() => {
-    //get height of largest card after they render
-    const projectCards = document.querySelectorAll('.project-card');
-    let maxCardHeight = 0;
-
-    projectCards.forEach((card) => {
-      const cardHeight = card.offsetHeight;
-      if (cardHeight > maxCardHeight) {
-        maxCardHeight = cardHeight;
-      }
-    });
-
-    setMaxHeight(maxCardHeight);
-  }, []);
-
-    return (
-      <div id="projects" className="projects-container">
-        <h3>Projects</h3>
-        <div className="projects-wrapper">
-          {projectData.map((project, index) => {
-
-            // import the image and video files
-            const img = import(`../assets/projects/${project.mediaName}.png`);
-            const video = import(`../assets/projects/${project.mediaName}.mp4`);
-
-            return (
-              <ProjectCard 
-                key={index} 
-                {...project} 
-                // pass the promise of the image and video to the component
-                img={img.then((img) => img.default)} 
-                video={video.then((video) => video.default)} 
-                style={{ height: `${maxHeight}px` }} 
-              />
-            )
-          })}
-        </div>
-      </div>
-    );
-  }
 
 export default Projects;

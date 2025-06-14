@@ -1,81 +1,56 @@
-import './css/skills.css';
-
-
-function SkillCard({type, list}) {
-  return (
-    <div className="skill-card">
-      <h2>{type}</h2>
-      <ul>
-        {list.map((item, index) => (
-          <li key={index}>
-            {typeof item === 'object' ? (
-              <>
-                <strong>{item.service}</strong>
-                <ul>
-                  {item.subList.map((subItem, subIndex) => (
-                    <li key={subIndex}>{subItem}</li>
-                  ))}
-                </ul>
-              </>
-            ) : (
-              item
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+import "./css/skills.css";
 
 function Skills() {
   const skills = [
-    { type: "Front End", list: ["HTML", "CSS", "React", "Vue/Vuex"] },
+    { name: "HTML", url: "html5/html5-original.svg" },
+    { name: "CSS", url: "css3/css3-original.svg" },
+    { name: "React", url: "react/react-original.svg" },
+    { name: "Vue", url: "vuejs/vuejs-original.svg" },
+    { name: "Node.js", url: "nodejs/nodejs-original.svg" },
+    { name: "Express", url: "express/express-original.svg" },
+    { name: "Flask", url: "flask/flask-original.svg" },
+    { name: "SQL", url: "azuresqldatabase/azuresqldatabase-original.svg" },
+    { name: "MySQL", url: "mysql/mysql-original.svg" },
+    { name: "SQLite", url: "sqlite/sqlite-original.svg" },
+    { name: "C", url: "c/c-original.svg" },
+    { name: "C++", url: "cplusplus/cplusplus-original.svg" },
+    { name: "Python", url: "python/python-original.svg" },
+    { name: "Javascript", url: "javascript/javascript-original.svg" },
+    { name: "Typescript", url: "typescript/typescript-original.svg" },
+    { name: "Java", url: "java/java-original.svg" },
+    { name: "Kotlin", url: "kotlin/kotlin-original.svg" },
+    { name: "GLSL/OpenGL", url: "opengl/opengl-original.svg" },
+    { name: "GCP", url: "googlecloud/googlecloud-original.svg" },
     {
-      type: "Back End",
-      list: ["Node.js", "Express", "Flask", "SQL", "MySQL", "SQLite"],
+      name: "AWS",
+      url: "amazonwebservices/amazonwebservices-plain-wordmark.svg",
     },
-    {
-      type: "Languages",
-      list: [
-        "C",
-        "C++",
-        "Python",
-        "Javascript",
-        "Typescript",
-        "Java",
-        "Kotlin",
-        "GLSL/OpenGL",
-      ],
-    },
-    {
-      type: "Cloud Services",
-      list: [
-        {
-          service: "Google Cloud Platform",
-          subList: ["Datastore", "App Engine", "Compute Engine"],
-        },
-        {
-          service: "Amazon Web Services",
-          subList: ["EC2", "ECS", "CloudWatch", "RDS", "S3", "IAM"],
-        },
-      ],
-    },
-    {
-      type: "Other",
-      list: ["Git", "GitHub", "Postman", "Docker", "Terraform", "Ansible"],
-    },
+    { name: "Git", url: "git/git-original.svg" },
+    { name: "GitHub", url: "github/github-original.svg" },
+    { name: "Postman", url: "postman/postman-original.svg" },
+    { name: "Docker", url: "docker/docker-original.svg" },
+    { name: "Terraform", url: "terraform/terraform-original.svg" },
+    { name: "Ansible", url: "ansible/ansible-original.svg" },
   ];
 
-    return (
-      <div id="skills" className="skills-container">
-        <h3>Skills</h3>
-        <div className="skills-wrapper">
-          {skills.map((skill, index) => (
-            <SkillCard key={index} {...skill} />
-          ))}
-        </div>
+  const iconBase = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/";
+
+  return (
+    <div id="skills" className="skills-container">
+      <h3>Skills</h3>
+
+      <div className="skills-grid">
+        {skills.map((skill, index) => (
+          <div key={index} className="skill-icon-box" title={skill.name}>
+            <div className="skill-icon">
+              <img src={`${iconBase}${skill.url}`} alt={skills[index]} />
+            </div>
+            <span>{skill.name}</span>
+          </div>
+        ))}
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 export default Skills;

@@ -1,61 +1,63 @@
-.about-me{
-    max-width: 75%;
+.about-me {
+  max-width: 75%;
 }
 
 h3 {
-   font-size: 2em; 
+  font-size: 2em;
+  padding: 0.5em;
+  border-bottom: 1px solid var(--navbar-color);
 }
 
 .about-me-container {
-    width: 75%;
-    padding: 3em 1em;
+  width: 75%;
+  padding: 1em 1em;
+  align-self: center;
 }
 
-.about-me-text > p{
-    padding: 1em;
-    padding-left: 0;
-    text-align: left;
+.about-me-text > p {
+  padding: 1em;
+  padding-left: 0;
+  text-align: left;
 }
 
 .portrait {
-   
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .about-me-text-photo-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .links {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: calc(100% - 4em);
-    margin: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: calc(100% - 4em);
+  margin: 2em;
 }
 
 .links > a > img {
-    height: 2em;
+  height: 2em;
 }
 
 .links > a > img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .about-me-text > p > a {
-    color: var(--light-teal);
-    text-decoration: none;
+  color: var(--light-teal);
+  text-decoration: none;
 }
 
 @media (max-width: 599px) {
-    .about-me-text-photo-wrapper {
-        flex-direction: column;
-    }
+  .about-me-text-photo-wrapper {
+    flex-direction: column;
+  }
 
-    .about-me-container {
-        width: 90%;
-    }
+  .about-me-container {
+    width: 90%;
+  }
 }
