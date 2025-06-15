@@ -29,6 +29,13 @@
 
 .project-section.even {
   background-color: var(--navbar-color);
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.project-section.odd {
+  opacity: 0;
+  transform: translateX(50px);
 }
 
 .project-row {

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { projectData } from "../assets/projectData";
 import HoverVideoPlayer from "react-hover-video-player";
+import { animate, inView } from "motion";
 import "./css/projects.css";
 
 function ImgVideoComponent({ video, img, alt }) {
@@ -43,6 +44,21 @@ function ImgVideoComponent({ video, img, alt }) {
 }
 
 function Projects() {
+  // slide in from the sides when the section comes into view
+  useEffect(() => {
+    const sections = document.querySelectorAll(".project-section");
+
+    sections.forEach((section) => {
+      inView(section, () => {
+        animate(
+          section,
+          { opacity: 1, transform: "translateX(0)" },
+          { duration: 0.8, easing: "ease-out" },
+        );
+      });
+    });
+  }, []);
+
   return (
     <div id="projects" className="projects-container">
       <h3>Projects</h3>

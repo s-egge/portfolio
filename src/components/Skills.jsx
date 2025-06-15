@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { animate, inView } from "motion";
 import "./css/skills.css";
 
 function Skills() {
@@ -34,6 +36,25 @@ function Skills() {
   ];
 
   const iconBase = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/";
+
+  // fade in and scale up the skill icons when the section comes into view
+  useEffect(() => {
+    const items = document.querySelectorAll(".skill-icon-box");
+
+    inView(
+      ".skills-grid",
+      () => {
+        items.forEach((el, i) => {
+          animate(
+            el,
+            { opacity: 1, transform: "scale(1)" },
+            { delay: i * 0.05, duration: 0.8, easing: "ease-out" },
+          );
+        });
+      },
+      { amount: 0.2 },
+    );
+  }, []);
 
   return (
     <div id="skills" className="skills-container">

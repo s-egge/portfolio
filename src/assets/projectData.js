@@ -61,7 +61,7 @@ export const projectData = [
       "This web page! A desktop and mobile friendly page where I showcase my projects. It's seen a few iterations, so the video may not match the current design.",
     mediaName: "portfolio",
     alt: "portfolio website photo/video",
-    tech: ["html", "css", "javascript", "react"],
+    tech: ["html", "css", "javascript", "react", "motion"],
     projectLink: "https://samanthaegge.com/",
     githubLink: "https://github.com/s-egge/portfolio",
   },
